@@ -50,6 +50,10 @@ Các trường hợp ngoài ý muốn (rất hiếm): GitHub gặp sự cố to�
 
 > 💡 Sửa **nội dung** bên trong `index.html` thì thoải mái, QR không bị ảnh hưởng. Chỉ không được đổi **tên/đường dẫn**.
 
+### Mã QR đã cố định chưa? In tờ rơi được chưa?
+
+**Đã cố định, in được.** Mã QR chỉ chứa đường dẫn, không chứa nội dung trang, nên sau này sửa trang thế nào thì mã đã in vẫn dùng được. Trước khi in số lượng lớn, làm theo **mục 9** (thông số in) và **mục 14** (checklist).
+
 ---
 
 ## 2. Làm lại từ đầu: tổng quan
@@ -213,13 +217,14 @@ Dù dùng cách nào, **quét thử** trước khi gửi in.
 
 ---
 
-## 9. Thông số in poster
+## 9. Thông số in (poster, tờ rơi)
 
 | Hạng mục | Khuyến nghị |
 |---|---|
 | Định dạng gửi nhà in | **SVG** (vector) |
 | Lề trắng quanh mã | Tối thiểu 4 ô (đã có sẵn trong file) |
 | Kích thước | Cạnh mã ≥ 1/10 khoảng cách quét. Đứng cách 2 m → mã ≥ 20 cm; cầm điện thoại sát → 4–5 cm là đủ |
+| Tờ rơi | Cạnh mã **tối thiểu ~3 cm**, tốt nhất **4 cm** |
 | Màu | **Mã đen trên nền trắng.** Không đảo màu, không tô màu theo tông poster |
 | Mức sửa lỗi | Q (đang dùng), hoặc H nếu chèn logo / poster dễ lóa, nhăn |
 | Ghi chú | In tên sản phẩm ngay dưới mã để khách biết mã nào của sản phẩm nào |
@@ -238,7 +243,31 @@ Sau ~1 phút trang cập nhật. Trên điện thoại có thể cần tải l�
 
 ---
 
-## 11. Thêm sản phẩm mới
+## 11. Người khác chỉnh sửa HTML (làm đẹp, sửa nội dung)
+
+**Không ảnh hưởng gì tới mã QR.** Sửa chữ, đổi màu, thêm ảnh hay làm lại toàn bộ giao diện đều được; khách quét sẽ thấy bản mới sau khoảng 1 phút.
+
+### 11.1. Cấp quyền sửa
+Repo nằm trong tài khoản cá nhân `toancoderVN`, nên người khác chưa sửa trực tiếp được. Chọn một trong hai cách:
+
+- **Cách 1 – Gửi file:** người sửa gửi file HTML mới cho chủ repo, chủ repo upload theo **mục 10**.
+- **Cách 2 – Mời vào repo:** **Settings → Collaborators → Add people**, nhập username GitHub của người đó. Họ nhận email mời, chấp nhận xong là sửa được. Gửi kèm tài liệu này cho họ (đặc biệt mục 10, 11 và 13).
+
+### 11.2. Quy tắc bắt buộc cho người sửa
+
+1. **Giữ đúng tên và đúng chỗ:** bản mới phải tên là **`index.html`** và nằm đúng thư mục cũ (`follower/`, `insider/`, `vertiai/`).
+   - ⚠️ Lỗi hay gặp: upload file với tên khác (ví dụ `FOLLOWER_gioi_thieu_san_pham.html`) → file mới nằm riêng một chỗ, QR vẫn mở trang cũ, trông như "sửa mà không thấy đổi". Cách sửa: xóa file `follower/index.html` cũ trước (mở file → **⋯** → **Delete file** → Commit), rồi đổi tên file mới thành `follower/index.html` theo mục 5 (Cách A, bước 3–5). Trong lúc chưa đổi tên xong (khoảng 1–2 phút), link tạm thời báo lỗi 404 – làm liền tay là được.
+2. **Không** đổi tên / xóa thư mục, **không** đổi tên repo, **không** chuyển repo sang Private.
+3. Nếu tách CSS / ảnh ra file riêng: đặt chung trong thư mục sản phẩm và dùng **đường dẫn tương đối** (`./style.css`, `./images/a.jpg`), **không** dùng `/style.css`.
+4. Nén ảnh xuống vài trăm KB (khách mở bằng 4G).
+
+### 11.3. Sau mỗi lần sửa
+- Đợi ~1 phút, mở link trên điện thoại để kiểm tra (kéo xuống để tải lại nếu vẫn thấy bản cũ).
+- **Lỡ sửa hỏng:** QR vẫn chạy nhưng khách sẽ thấy trang lỗi. GitHub lưu **mọi phiên bản cũ**: mở file → **History** → chọn phiên bản tốt → mở file ở phiên bản đó (nút **⋯ → View file**) → **Raw** → lưu về máy → upload lại đè lên `index.html` theo mục 10.
+
+---
+
+## 12. Thêm sản phẩm mới
 
 1. Upload file HTML → đổi tên thành `<ten-moi>/index.html` (mục 5).
 2. Kiểm tra link `https://toancodervn.github.io/trienlambk/<ten-moi>/`.
@@ -246,7 +275,7 @@ Sau ~1 phút trang cập nhật. Trên điện thoại có thể cần tải l�
 
 ---
 
-## 12. Những điều KHÔNG được làm sau khi đã in QR
+## 13. Những điều KHÔNG được làm sau khi đã in QR
 
 - ❌ Đổi tên tài khoản `toancoderVN`
 - ❌ Đổi tên repo `trienlambk`
@@ -259,13 +288,14 @@ Sau ~1 phút trang cập nhật. Trên điện thoại có thể cần tải l�
 
 ---
 
-## 13. Checklist trước khi gửi in
+## 14. Checklist trước khi gửi in (poster, tờ rơi)
 
 - [ ] Cả 3 link mở được trên điện thoại
 - [ ] Đã quét cả 3 mã bằng **2–3 điện thoại khác nhau** (cả iPhone và Android)
 - [ ] Đã quét bằng **4G**, không phải wifi
 - [ ] Mỗi mã dẫn **đúng sản phẩm** in bên cạnh trên poster
 - [ ] File gửi nhà in là **SVG**, mã đen trên nền trắng, có lề trắng
+- [ ] Tờ rơi: cạnh mã **≥ 3 cm** (tốt nhất 4 cm), có **tên sản phẩm** ngay dưới mỗi mã
 - [ ] Đã quét thử **bản in mẫu** trước khi in số lượng lớn
 
 ---
