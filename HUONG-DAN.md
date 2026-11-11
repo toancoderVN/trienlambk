@@ -1,6 +1,6 @@
 # Hướng dẫn: Landing page sản phẩm + mã QR cho triển lãm (GitHub Pages)
 
-Tài liệu này ghi lại **toàn bộ quy trình từ đầu đến cuối** đã dùng để đưa 3 trang giới thiệu sản phẩm (FOLLOWER, INSIDER, VERTI AI) lên mạng và tạo mã QR in poster. Làm lại cho sản phẩm/triển lãm khác chỉ cần đi đúng các bước bên dưới.
+Tài liệu này ghi lại **toàn bộ quy trình từ đầu đến cuối** đã dùng để đưa 4 trang giới thiệu sản phẩm (FOLLOWER, INSIDER, VERTI AI, CITADEL) lên mạng và tạo mã QR in standee, catalogue, tờ rơi. Làm lại cho sản phẩm/triển lãm khác chỉ cần đi đúng các bước bên dưới.
 
 ---
 
@@ -11,18 +11,30 @@ Tài liệu này ghi lại **toàn bộ quy trình từ đầu đến cuối** �
 | FOLLOWER | https://toancodervn.github.io/trienlambk/follower/ | `follower/index.html` | `qr/qr_follower.svg` |
 | INSIDER | https://toancodervn.github.io/trienlambk/insider/ | `insider/index.html` | `qr/qr_insider.svg` |
 | VERTI AI | https://toancodervn.github.io/trienlambk/vertiai/ | `vertiai/index.html` | `qr/qr_vertiai.svg` |
+| CITADEL | https://toancodervn.github.io/trienlambk/citadel/ | `citadel/index.html` | `qr/qr_citadel.svg` |
 
 <p>
   <img src="qr/qr_follower.svg" width="160" alt="QR FOLLOWER">
   <img src="qr/qr_insider.svg" width="160" alt="QR INSIDER">
   <img src="qr/qr_vertiai.svg" width="160" alt="QR VERTI AI">
+  <img src="qr/qr_citadel.svg" width="160" alt="QR CITADEL">
 </p>
 
-*(Từ trái sang: FOLLOWER, INSIDER, VERTI AI)*
+*(Từ trái sang: FOLLOWER, INSIDER, VERTI AI, CITADEL)*
 
 - Repo: `toancoderVN/trienlambk` (Public), GitHub Pages bật từ nhánh `main`, thư mục `/ (root)`.
 - File gửi nhà in: **`.svg`** trong thư mục `qr/`. File `.png` chỉ để xem trước / chèn slide.
-- Cả 3 mã là **QR tĩnh**, mức sửa lỗi **Q (~25%)**, đã quét thử bằng 2 bộ giải mã (OpenCV, ZXing).
+- Cả 4 mã là **QR tĩnh**, mức sửa lỗi **Q (~25%)**, đã quét thử bằng 2 bộ giải mã (OpenCV, ZXing).
+- Font các trang: chữ thường **Be Vietnam Pro**, tiêu đề **Lora** (nhúng sẵn trong file, đủ dấu tiếng Việt).
+
+### Ấn phẩm in đã làm
+
+| Ấn phẩm | File | Ghi chú |
+|---|---|---|
+| Standee A5 (15 × 19 cm) | `Standee_FOLLOWER_HORSEAI.pptx`, `Standee_INSIDER_HORSEAI.pptx`, `Standee_VERTIAI_HORSEAI.pptx`, `Standee_CITADEL_HORSEAI.pptx` | Từ file `Template Standee A5 san pham trien lam (15 x 19 cm).pptx`: điền tên, dòng mô tả, đơn vị triển lãm và mã QR (cạnh ~3,4 cm) |
+| Catalogue A4 2 mặt | `Poster Follower A4 (QR).pdf`, `Poster Insider A4 (QR).pdf`, `Poster Verti AI – A4 2 mặt (QR).pdf` | Mặt sau: khối "Giấy chứng nhận quyền tác giả" đã thay bằng mã QR (cạnh ~2,9 cm) |
+
+*(Các file này lưu trên máy, trong folder chuẩn bị triển lãm; không đưa lên repo.)*
 
 ---
 
@@ -38,9 +50,9 @@ Tài liệu này ghi lại **toàn bộ quy trình từ đầu đến cuối** �
 
 | Hành động | Hậu quả |
 |---|---|
-| Đổi tên tài khoản GitHub `toancoderVN` | Cả 3 link đổi → **toàn bộ QR hỏng** |
-| Đổi tên repo `trienlambk` | Cả 3 link đổi → **toàn bộ QR hỏng** |
-| Đổi tên / xóa thư mục `follower/`, `insider/`, `vertiai/` | QR của sản phẩm đó hỏng (404) |
+| Đổi tên tài khoản GitHub `toancoderVN` | Cả 4 link đổi → **toàn bộ QR hỏng** |
+| Đổi tên repo `trienlambk` | Cả 4 link đổi → **toàn bộ QR hỏng** |
+| Đổi tên / xóa thư mục `follower/`, `insider/`, `vertiai/`, `citadel/` | QR của sản phẩm đó hỏng (404) |
 | Đổi tên / xóa file `index.html` trong thư mục | QR của sản phẩm đó hỏng |
 | Chuyển repo sang **Private** | Tài khoản miễn phí sẽ tắt Pages → **toàn bộ QR hỏng** |
 | Tắt GitHub Pages (Settings → Pages → None) | **Toàn bộ QR hỏng** |
@@ -83,7 +95,7 @@ Các trường hợp ngoài ý muốn (rất hiếm): GitHub gặp sự cố to�
 
 ### 3.2. File HTML
 - Mỗi sản phẩm **một file HTML**.
-- Tốt nhất là file **tự chứa** (font, ảnh, CSS nhúng sẵn trong file, như 3 file hiện tại) → không lo lỗi đường dẫn.
+- Tốt nhất là file **tự chứa** (font, ảnh, CSS nhúng sẵn trong file, như 4 file hiện tại) → không lo lỗi đường dẫn.
 - Nếu có file đi kèm (CSS, ảnh), dùng **đường dẫn tương đối**: `./style.css`, `./images/a.jpg`. **Không** dùng `/style.css` (trang nằm trong thư mục con nên sẽ lỗi).
 - Nén ảnh xuống vài trăm KB, vì khách quét bằng 4G trong hội trường.
 
@@ -93,7 +105,7 @@ Các trường hợp ngoài ý muốn (rất hiếm): GitHub gặp sự cố to�
 |---|---|---|
 | Username | `toancoderVN` | Trong link GitHub tự viết thường: `toancodervn` |
 | Tên repo | `trienlambk` | Ngắn, viết thường, không dấu, không khoảng trắng |
-| Thư mục từng sản phẩm | `follower`, `insider`, `vertiai` | Ngắn, viết thường, không dấu |
+| Thư mục từng sản phẩm | `follower`, `insider`, `vertiai`, `citadel` | Ngắn, viết thường, không dấu |
 
 > 💡 Link càng ngắn → mã QR càng thưa → càng dễ quét.
 
@@ -120,6 +132,7 @@ trienlambk/
 ├── follower/index.html
 ├── insider/index.html
 ├── vertiai/index.html
+├── citadel/index.html
 ├── qr/  (ảnh mã QR)
 ├── HUONG-DAN.md
 └── README.md
@@ -132,7 +145,7 @@ trienlambk/
 3. Bấm vào file vừa upload → bấm biểu tượng **bút chì (Edit)**.
 4. Ở ô tên file phía trên, xóa tên cũ rồi gõ **`follower/index.html`**. Dấu `/` sẽ tự tạo thư mục `follower`.
 5. Bấm **Commit changes…** → **Commit changes**.
-6. Lặp lại cho từng sản phẩm (`insider/index.html`, `vertiai/index.html`).
+6. Lặp lại cho từng sản phẩm (`insider/index.html`, `vertiai/index.html`, `citadel/index.html`).
 
 ### Cách B: kéo thả nguyên thư mục
 Trên máy, tạo sẵn thư mục `follower/` chứa file `index.html` (đổi tên file trước), rồi kéo **cả thư mục** vào trang **Upload files**. GitHub giữ nguyên cấu trúc thư mục.
@@ -168,6 +181,7 @@ Mở trên điện thoại (dùng **4G**, không dùng wifi):
 https://toancodervn.github.io/trienlambk/follower/
 https://toancodervn.github.io/trienlambk/insider/
 https://toancodervn.github.io/trienlambk/vertiai/
+https://toancodervn.github.io/trienlambk/citadel/
 ```
 
 Link chạy đúng rồi mới tạo QR.
@@ -191,6 +205,7 @@ links = {
     "follower": "https://toancodervn.github.io/trienlambk/follower/",
     "insider":  "https://toancodervn.github.io/trienlambk/insider/",
     "vertiai":  "https://toancodervn.github.io/trienlambk/vertiai/",
+    "citadel":  "https://toancodervn.github.io/trienlambk/citadel/",
 }
 
 for name, url in links.items():
@@ -205,7 +220,7 @@ for name, url in links.items():
     print(name, "OpenCV:", ok1, "| ZXing:", ok2)
 ```
 
-Nếu một mã chỉ đọc được bằng 1 bộ giải mã, thử đổi mẫu mặt nạ: `segno.make(url, error="q", mask=0)` (thử các số 0–7) cho tới khi cả hai đều `True`. Mã đang dùng: FOLLOWER `mask=0`, INSIDER `mask=4`, VERTI AI `mask=2`.
+Nếu một mã chỉ đọc được bằng 1 bộ giải mã, thử đổi mẫu mặt nạ: `segno.make(url, error="q", mask=0)` (thử các số 0–7) cho tới khi cả hai đều `True`. Mã đang dùng: FOLLOWER `mask=0`, INSIDER `mask=4`, VERTI AI `mask=2`, CITADEL `mask=2`.
 
 Muốn chèn logo vào giữa mã thì đổi `error="q"` thành `error="h"`.
 
@@ -255,11 +270,12 @@ Repo nằm trong tài khoản cá nhân `toancoderVN`, nên người khác chưa
 
 ### 11.2. Quy tắc bắt buộc cho người sửa
 
-1. **Giữ đúng tên và đúng chỗ:** bản mới phải tên là **`index.html`** và nằm đúng thư mục cũ (`follower/`, `insider/`, `vertiai/`).
+1. **Giữ đúng tên và đúng chỗ:** bản mới phải tên là **`index.html`** và nằm đúng thư mục cũ (`follower/`, `insider/`, `vertiai/`, `citadel/`).
    - ⚠️ Lỗi hay gặp: upload file với tên khác (ví dụ `FOLLOWER_gioi_thieu_san_pham.html`) → file mới nằm riêng một chỗ, QR vẫn mở trang cũ, trông như "sửa mà không thấy đổi". Cách sửa: xóa file `follower/index.html` cũ trước (mở file → **⋯** → **Delete file** → Commit), rồi đổi tên file mới thành `follower/index.html` theo mục 5 (Cách A, bước 3–5). Trong lúc chưa đổi tên xong (khoảng 1–2 phút), link tạm thời báo lỗi 404 – làm liền tay là được.
 2. **Không** đổi tên / xóa thư mục, **không** đổi tên repo, **không** chuyển repo sang Private.
 3. Nếu tách CSS / ảnh ra file riêng: đặt chung trong thư mục sản phẩm và dùng **đường dẫn tương đối** (`./style.css`, `./images/a.jpg`), **không** dùng `/style.css`.
 4. Nén ảnh xuống vài trăm KB (khách mở bằng 4G).
+5. **Giữ font Be Vietnam Pro + Lora** (đã nhúng sẵn). Không đổi sang font không đủ dấu tiếng Việt (ví dụ Caladea từng làm mất dấu ở tiêu đề). Mở thử trên điện thoại, kiểm tra các chữ như "ầ, ổ, ệ, ữ, ợ" hiển thị đúng.
 
 ### 11.3. Sau mỗi lần sửa
 - Đợi ~1 phút, mở link trên điện thoại để kiểm tra (kéo xuống để tải lại nếu vẫn thấy bản cũ).
@@ -279,7 +295,7 @@ Repo nằm trong tài khoản cá nhân `toancoderVN`, nên người khác chưa
 
 - ❌ Đổi tên tài khoản `toancoderVN`
 - ❌ Đổi tên repo `trienlambk`
-- ❌ Đổi tên / xóa thư mục `follower`, `insider`, `vertiai`, hoặc file `index.html` bên trong
+- ❌ Đổi tên / xóa thư mục `follower`, `insider`, `vertiai`, `citadel`, hoặc file `index.html` bên trong
 - ❌ Chuyển repo sang **Private**
 - ❌ Tắt GitHub Pages
 - ❌ Xóa repo
@@ -290,8 +306,8 @@ Repo nằm trong tài khoản cá nhân `toancoderVN`, nên người khác chưa
 
 ## 14. Checklist trước khi gửi in (poster, tờ rơi)
 
-- [ ] Cả 3 link mở được trên điện thoại
-- [ ] Đã quét cả 3 mã bằng **2–3 điện thoại khác nhau** (cả iPhone và Android)
+- [ ] Cả 4 link mở được trên điện thoại
+- [ ] Đã quét cả 4 mã bằng **2–3 điện thoại khác nhau** (cả iPhone và Android)
 - [ ] Đã quét bằng **4G**, không phải wifi
 - [ ] Mỗi mã dẫn **đúng sản phẩm** in bên cạnh trên poster
 - [ ] File gửi nhà in là **SVG**, mã đen trên nền trắng, có lề trắng
